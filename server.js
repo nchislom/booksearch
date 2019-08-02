@@ -29,8 +29,22 @@ const Book = new Schema({
 
 // Define API routes here
 
+//Should return all saved books as JSON.
+app.get("/api/books", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+// Will be used to save a new book to the database.
+app.post("/api/books", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+// Will be used to delete a book from the database by Mongo _id.
+app.delete("/api/books/:id", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
 // Send every other request to the React app
-// Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
